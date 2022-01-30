@@ -29,7 +29,15 @@ public class IHMQuestion2_1 extends JFrame {
 
         // à compléter
         // le bouton A a 3 observateurs jbo1, jbo2 et jbo3
-
+        boutonA.addActionListener(e->{
+           contenu.setText("Observateur jbo3:clic de boutounA\nObservateur jbo2:clic de boutounA\nObservateur jbo1:clic de boutounA\n");
+        });
+        boutonB.addActionListener(e->{
+           contenu.setText("Observateur jbo2:clic de boutounB\nObservateur jbo1:clic de boutounB");
+        });
+        boutonC.addActionListener(e->{
+           contenu.setText("Observateur jbo1:clic de boutounC");
+        });
         // le bouton B a 2 observateurs jbo1 et jbo2
 
         // le bouton C a 1 observateur jbo1

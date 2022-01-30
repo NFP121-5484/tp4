@@ -3,7 +3,8 @@ package question2;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 public class IHMQuestion2_2 extends JFrame {
 
     private JButton boutonA = new JButton("A");
@@ -33,9 +34,50 @@ public class IHMQuestion2_2 extends JFrame {
         // le bouton B a 2 observateurs jbo1 et jbo2
 
         // le bouton C a 1 observateur jbo1
-
+        boutonA.addActionListener(e->{
+           contenu.setText(contenu.getText() + "\nObservateur jbo3:clic de boutounA\nObservateur jbo2:clic de boutounA\nObservateur jbo1:clic de boutounA\n");
+        });
+        boutonB.addActionListener(e->{
+           contenu.setText(contenu.getText() + "\nObservateur jbo2:clic de boutounB\nObservateur jbo1:clic de boutounB");
+        });
+        boutonC.addActionListener(e->{
+           contenu.setText(contenu.getText() + "\nObservateur jbo1:clic de boutounC");
+        });
         // Ã  complÃ©ter pour la question 2_2 (JMouseObserver)
-            // le bouton A a 1 observateur jmo1
+       boutonA.addMouseListener(new MouseAdapter(){
+        @Override
+        public void mouseEntered(MouseEvent e)
+        {
+            contenu.setText("");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH,mm");
+            LocalDateTime now = LocalDateTime.now();
+            contenu.setText("Observateur jmo1:souris entrée en ("+dtf.format(now)+")");
+            //.setText(s);
+        }
+        });
+        boutonB.addMouseListener(new MouseAdapter(){
+        @Override
+        public void mouseEntered(MouseEvent e)
+        {
+            contenu.setText("");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH,mm");
+            LocalDateTime now = LocalDateTime.now();
+            contenu.setText("Observateur jmo2:souris entrée en ("+dtf.format(now)+")");
+            //.setText(s);
+        }
+        });
+        boutonC.addMouseListener(new MouseAdapter(){
+        @Override
+        public void mouseEntered(MouseEvent e)
+        {
+            contenu.setText("");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH,mm");
+            LocalDateTime now = LocalDateTime.now();
+            contenu.setText("Observateur jmo3:souris entrée en ("+dtf.format(now)+")");
+            //.setText(s);
+        }
+        });
+        // le bouton A a 1 observateur jmo1
             // le bouton B a 1 observateur jmo2
             // le bouton C a 1 observateur jmo3
         

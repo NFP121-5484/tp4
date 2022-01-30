@@ -2,7 +2,7 @@ package question1;
 
 import java.util.Observable;
 import java.util.ArrayList;
-
+import java.util.Observer;
 /**
  * Décrivez votre classe ConcreteSubject ici.
  * 
@@ -11,21 +11,23 @@ import java.util.ArrayList;
  */
 public class ConcreteSubject extends Observable {
 
-	/** ConcreteSubject est composé d'une liste list */
-	private ArrayList<String> list;
+    /** ConcreteSubject est composé d'une liste list */
+    private ArrayList<String> list;
+    private ArrayList<Observable> observable;
+    public ConcreteSubject() {
+        list = new ArrayList<String>();
+    }
 
-	public ConcreteSubject() {
-		list = new ArrayList<String>();
-	}
+    public void insert(String name) {
+        list.add(name);
+        setChanged();
+        notifyObservers(name);
+    }
 
-	public void insert(String name) {
-		list.add(name);
-		setChanged();
-		notifyObservers(name);
-	}
-
-	public String toString() {
-		return list.toString();
-	}
+    public String toString() {
+        return list.toString();
+    }
+    
+    public void addObserver(Observer o){}
 
 }

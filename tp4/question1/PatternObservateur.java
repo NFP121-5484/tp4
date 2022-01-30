@@ -15,7 +15,8 @@ public class PatternObservateur extends junit.framework.TestCase {
         // "vérification" :
         assertFalse(observer.senders().empty());                            // elle ne doit pas être vide,
         assertEquals(list, observer.senders().pop());                       // est-ce le bon émetteur ?
-        assertEquals("il fait beau, ce matin", observer.arguments().pop()); // le paramètre reçu est-il correct ?
+        assertEquals("il fait beau, ce matin", observer.arguments().pop());
+        System.out.println("Hello");// le paramètre reçu est-il correct ?
     }
 
     // une liste, 2 observateurs
@@ -34,8 +35,10 @@ public class PatternObservateur extends junit.framework.TestCase {
 
         // ne pas modifier ces lignes, dernières assertions vraies de cette
         // méthode
+        
         assertTrue(o1.senders().empty() && o1.arguments().empty());
         assertTrue(o2.senders().empty() && o2.arguments().empty());
+        
     }
 
     // deux listes, 1 observateur
